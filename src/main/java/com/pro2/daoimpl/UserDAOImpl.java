@@ -23,6 +23,11 @@ public class UserDAOImpl implements UserDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	public void registerUser(UsersDetails user) {
+        Session session=sessionFactory.getCurrentSession();
+        session.save(user);
+	}
+		
 
 	@Transactional
 	public boolean saveOrUpdate(UsersDetails users) {
@@ -139,8 +144,11 @@ public class UserDAOImpl implements UserDAO {
 			
 			System.out.println("Exception raised: "+e);
 			return false;
-		}
-	
+		}}
+		public UsersDetails getUserByUsername(String username) {
+			Session session=sessionFactory.getCurrentSession();
+			UsersDetails user=(UsersDetails)session.get(UsersDetails.class, username);
+			return user;
 	}
 	@Transactional
 	public List<UsersDetails> getAllUsers() {
@@ -148,10 +156,10 @@ public class UserDAOImpl implements UserDAO {
 		List<UsersDetails> userList = sessionFactory.getCurrentSession().createQuery(queryString).list();
 		return userList;
 	
-}
+}/*
 	public List<UsersDetails> getAllUsers(String email) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 }

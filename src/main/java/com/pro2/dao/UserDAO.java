@@ -17,7 +17,7 @@ public interface UserDAO {
 	public boolean isEmailValid(String email);
 	public boolean deleteUser(int id);
 	public List<UsersDetails> getAllUsers();
-
-
+	void registerUser(UsersDetails user);
+	UsersDetails getUserByUsername(String username);
 
 }

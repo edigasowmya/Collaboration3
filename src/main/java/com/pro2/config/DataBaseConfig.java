@@ -18,8 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.pro2.daoimpl.UserDAOImpl;
 import com.pro2.model.UsersDetails;
 
-@Configuration
-@EnableTransactionManagement
+
 public class DataBaseConfig {
 	
   Logger logger =LoggerFactory.getLogger(DataBaseConfig.class);
