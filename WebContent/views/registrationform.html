@@ -1,0 +1,78 @@
+<!--  <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
+<form>
+<pre>
+Enter userName : <input type="text"  ng-model="user.userName" >
+<span style="color:red" ng-if="error.code==2">{{error.message}}</span>
+Enter password: <input type="password" ng-model="user.password">
+Enter firstName : <input type="text" ng-model="user.firstName">
+Enter lastName : <input type="text" ng-model="user.lastName">
+Enter email : <input type="email" ng-model="user.email">
+<span style="color:red" ng-if="error.code==3">{{error.message}}</span>
+Enter contact: <input type="text" ng-model="user.contact">
+Select role:
+<input type="radio" value="STUDENT" ng-model="user.role">Student  
+<input type="radio" value="EMPLOYEE" ng-model="user.role"> Employee
+<input type="radio" value="ALUMNI" ng-model="user.role"> Alumni
+<input type="submit" value="Register" ng-click="registerUser()"> 1
+</pre>
+</form>  
+
+
+ -->
+
+<!-- <!DOCTYPE html> -->
+
+<style>
+ body 
+ 	{
+        background-color: #333;
+        background: url(http://www.timeequalsmoney.net.au/wp-content/uploads/2014/10/background_01.jpgs);
+    }
+.vertical-offset-100{
+    padding-top:10px;
+}
+ </style>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body data-ng-controller='UserController'>
+<div class="container" align="justify">
+		<div class="row vertical-offset-100">
+		    <div class="col-md-6 col-md-offset-14">
+		    	<div class="panel panel-default">
+					<div class="panel-heading">
+				    	<h3 class="panel-title" align="center"><i>Please Register</i></h3>
+				 	</div>
+					<fieldset><br> 
+					 <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
+
+                         <pre>
+						<div class="form-group" align="center">
+							<label class="col-md-4 control-label"><i>Enter firstName</i></label><input type="text" ng-model="user.firstName"><br>
+						</div>	
+						<div class="form-group" align="center">
+							<label class="col-md-4 control-label"><i>Enter lastName</i></label><input type="text" ng-model="user.lastName"><br>
+						</div>
+						<div class="form-group" align="center">
+							<label class="col-md-4 control-label"><i>Enter email</i></label><input type="text" ng-model="user.email"><br>
+						</div>
+						<div class="form-group" align="center">
+							<label class="col-md-4 control-label"><i>Enter userName</i></label><input type="text" ng-model="user.userName"><br>
+						</div>
+						<div class="form-group" align="center">
+							<label class="col-md-4 control-label"><i>Enter password</i></label><input type="password" ng-model="user.password"><br>
+						</div>
+						<div class="form-group" align="center">
+							<label class="col-md-4 control-label"><i>Select role</i></label><input type="radio" ng-model="user.role" value="Student">Student
+							<input type="radio" ng-model="user.role" value="Alumini">Alumini
+							<input type="radio" ng-model="user.role" value="Employee">Employee
+						</div>
+						<div class="form-group" align="center">
+						<input type="submit" value="Register" ng-click="registerUser()"><br></div><br>
+						</pre>
+</div>					 </fieldset>
+				</div>
+			</div>
+		</div>
