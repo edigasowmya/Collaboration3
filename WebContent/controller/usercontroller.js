@@ -1,7 +1,7 @@
--
-/**
- * UserController
- */
+
+
+
+
 app.controller('UserController',function($scope,UserService,$location,$rootScope,$cookieStore){
 
 	
@@ -22,6 +22,7 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 	
 	$scope.login=function(){
 		UserService.login($scope.user).then(function(response){//200,User
+			console.log("login start")
 			$rootScope.currentUser=response.data
 			$cookieStore.put('currentUser',response.data)
 			$location.path('/home')
@@ -30,10 +31,34 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 				$scope.error=response.data//errorClazz in JSON fmt
 				$location.path('/login')
 			}
+			
+			
+			
 		})
 	}
-})
+	
 
+	$scope.logout=function(){
+		UserService.logout($scope.user).then(function(response){//200,User
+			console.log("logout start")
+			$rootScope.currentUser=response.data
+			$cookieStore.put('currentUser',response.data)
+			$location.path('/login')
+		},function(response){//401,500....
+			if(response.status==401){
+				$scope.error=response.data//errorClazz in JSON fmt
+				$location.path('/login')
+			}
+			
+			
+			
+		})
+	}	
+	
+	
+	
+	
+})
 
 
 

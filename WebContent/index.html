@@ -27,10 +27,14 @@
                 </div>
 <div class="collapse navbar-collapse" id="collapse-example">
                 <ul class="nav navbar-nav ">
-                <li><a href="">Welcome {{currentUser.username}}</a></li>
-                <li><a href="#logout">logout</a></li>
-<li><a href="#/register">Sign Up</a></li>
-<li><a href="#/login">Sign In</a></li>
+              <li><a href=""   ng-show="currentUser.firstName">Welcome {{currentUser.firstName}} &nbsp; {{currentUser.lastName}}</a></li>
+ <li><a href="" ng-click="logout()" ng-show="currentUser.firstName" ng-controller='UserController'>logout</a></li>
+ <li><a href="#/register" ng-hide="currentUser.firstName">Register</a></li>
+ <li><a href="#/login" ng-hide="currentUser.firstName">login</a></li>
+ 
+ <li><a href="#/addjob" ng-show="currentUser.role=='ADMIN'">Add Job Details</a><li>
+  <li><a href="#/getalljobs" ng-show="currentUser.firstName">GetAllJobs</a></li>
+ 
 
 </ul>
 </div>
@@ -48,5 +52,9 @@
 <script type="text/javascript" src="controller/usercontroller.js"></script>
 <script type="text/javascript" src="services/userservice.js"></script>
 <script type="text/javascript" src="controller/homeController.js"></script>
+<script type="text/javascript" src="controller/jobcontroller.js"></script>
+<script type="text/javascript" src="services/JobService.js"></script>
+
+
 </html>
 

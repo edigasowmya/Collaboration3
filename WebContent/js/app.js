@@ -15,6 +15,32 @@
 	 	})
 	 	.otherwise({templateUrl:'views/home.html'})
 	 })
+	 .when('/addjob',{
+		templateUrl:'views/jobform.html',
+		controller:'JobController'
+	})
+	.when('/getalljobs',{
+		templateUrl:'views/joblist.html',
+		controller:'JobController'
+			
+			.when("/viewBlogs",{
+				templateUrl: "blogs/viewBlogs.html",
+				controller: "blogController"
+			})
+			.when("/viewMyBlogs",{
+				templateUrl: "blogs/viewUserBlogs.html",
+				controller: "blogViewController"
+			})
+			.when("/createBlog",{
+				templateUrl: "blogs/createNewBlog.html",
+				controller: "blogController"
+			})
+			.when("/admin/manageBlog",{
+				templateUrl: "blogs/manageBlog.html",
+				controller: "blogController"
+			})
+			
+	})
 	 app.run(function($rootScope,$cookieStore,UserService,$location){
 	 	if($rootScope.currentUser==undefined)
 	 		$rootScope.currentUser=$cookieStore.get('currentUser')
@@ -27,7 +53,7 @@
 	 		UserService.logout().then(function(response){
 	 			delete $rootScope.currentUser;
 	 			$cookieStore.remove('currentUser')
-	 			$location.path('/login')
+	 			$location.path('/')
 	 			
 	 		},function(response){
 	 			console.log(response.status)

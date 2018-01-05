@@ -23,4 +23,10 @@ app.factory('UserService',function($http){
 		return $http.get(BASE_URL + "/logout")
 	}
 	return userService;
+	
+	userService.logout=function(){
+		return $http.get(BASE_URL + "/home")
+	}
+	return userService;
+	
 })

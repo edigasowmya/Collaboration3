@@ -1,0 +1,61 @@
+<div class="row vertical-offset-20">
+		<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+		  
+		  			<h3 class="panel-title"> Add Job Detail </h3>
+		        </div>
+			<div class="panel-body">
+				<div class="panel-body">
+			
+			<!-- <form > -->
+			<!--  <p><font color="red">{{errorMessage}}</font></p> -->
+			<fieldset>
+				  <div class="form-group">
+				  	<label for="jobTitle">Job Title: </label>
+				    <input class="form-control"  type="text"    name="jobTitle" placeholder="Enter Job Title" data-ng-model="job.jobTitle" required="required"/>
+				   </div>
+		    
+					   <div class="form-group">
+					    <label for="jobDescription">Job Description </label>
+					    <input class="form-control"  type="text"  name="jobDescription" placeholder="Enter Job Description" data-ng-model="job.jobDescription"  required="required"/>
+					  	</div>
+					
+					 <div class="form-group">
+					    <label for="SkillRequried">Skills Required: </label>
+					    <input class="form-control"  type="text"  name="SkillRequried" placeholder="Enter Skills Required" data-ng-model="job.SkillRequried"  required="required"/>
+					</div>
+		
+					<div class="form-group">		 
+					     <label for="Location">Location : </label>
+					     <input class="form-control"  type="text"  name="Location" placeholder="Enter Location" data-ng-model="job.Location"  maxlength="10" required="required"/>
+					 </div>
+		    
+					     <div class="form-group">
+					    <label for="CompanyName">Company Name: </label>
+					    <input type="text" class="form-control" name="CompanyName"  placeholder="Enter Company Name" data-ng-model="job.CompanyName"  required="required"/>
+					    </div>
+					    
+					    <div class="form-group">
+					    <label for="Salary">Salary : </label>
+					    <input type="text" class="form-control"  placeholder="Enter Salary" data-ng-model="job.Salary"  required="required"/>
+					    </div>		
+					    	
+						<div class="form-group">
+					    <label for="yearsofExperience">Years Of Experience : </label>
+					    <input type="text" class="form-control"  placeholder="Enter Years Of Experience"  name="yearsofExperience" data-ng-model="job.yearsofExperience" required/>
+					    </div>
+					    
+					   	<div class="form-group">
+							    <div class="clearfix">
+							      <button type="submit" class="btn btn-success" data-ng-click="addJob(job)">Add Job</button>
+							      <button type="reset"  class="btn btn-danger">Cancel</button>		     
+							 </div>
+			    		</div>
+			    	</fieldset>
+			 <!--    </form> -->
+			   </div>
+		</div>
+		</div>
+  </div>
+</div>
