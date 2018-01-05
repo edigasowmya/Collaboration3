@@ -19,7 +19,7 @@ import org.springframework.web.servlet.view.JstlView;
 //<context:component-scan base-package="com.niit"></context:component-scan>
 public class WebConfig extends WebMvcConfigurerAdapter{
 
-	@Bean
+	/*@Bean
 	public ViewResolver viewResolver(){
 		
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -28,5 +28,5 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
-	
+	*/
 }

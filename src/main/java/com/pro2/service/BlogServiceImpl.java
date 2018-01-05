@@ -1,0 +1,73 @@
+package com.pro2
+.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pro2.dao.BlogDao;
+import com.pro2.model.Blog;
+
+@Service
+public class BlogServiceImpl implements BlogService{
+
+	@Autowired
+	BlogDao blogDao;
+	
+	public boolean addBlog(Blog blog) {
+		return blogDao.addBlog(blog);
+		
+	}
+
+	public boolean updateBlog(Blog blog) {
+		return blogDao.updateBlog(blog);
+		
+	}
+
+	public Blog getBlog(int blogId) {
+		return blogDao.getBlog(blogId);
+	}
+
+	public List<Blog> getAllBlogs(int userId) {
+		return blogDao.getAllBlogs(userId);
+	}
+
+	public boolean approveBlog(Blog blog) {
+	
+		return blogDao.approveBlog(blog);
+		
+	}
+
+	public List<Blog> getAllBlogs() {
+		
+		return blogDao.getAllBlogs();
+	}
+
+	public boolean deleteBlog(Blog blog) {
+		
+		return blogDao.deleteBlog(blog);
+	}
+
+	public boolean rejectBlog(Blog blog) {
+		
+		return blogDao.rejectBlog(blog);
+	}
+
+	public List<Blog> getAllPendingBlogs() {
+		
+		return blogDao.getAllPendingBlogs();
+	}
+
+	public int updateNoOfLikes(Blog blog) {
+		
+		return blogDao.updateNoOfLikes(blog);
+	}
+
+	public List<Blog> getAllApprovedBlog() {
+		
+		return blogDao.getAllApprovedBlog();
+	}
+
+
+}

@@ -2,6 +2,7 @@ package com.pro2.dao;
 
 import java.util.List;
 
+
 import com.pro2.model.UsersDetails;
 
 public interface UserDAO {
@@ -19,5 +20,4 @@ public interface UserDAO {
 	public List<UsersDetails> getAllUsers();
 	void registerUser(UsersDetails user);
 	UsersDetails getUserByUsername(String username);
-
 }

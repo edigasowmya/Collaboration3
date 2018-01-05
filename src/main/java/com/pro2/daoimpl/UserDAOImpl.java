@@ -15,7 +15,7 @@ import com.pro2.dao.UserDAO;
 import com.pro2.model.UsersDetails;
 
 
-@Repository("userDAO")
+@Repository
 public class UserDAOImpl implements UserDAO {
 	
 	
@@ -23,6 +23,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
 	public void registerUser(UsersDetails user) {
         Session session=sessionFactory.getCurrentSession();
         session.save(user);
@@ -52,7 +53,7 @@ public class UserDAOImpl implements UserDAO {
 		@SuppressWarnings("deprecation")
 		@Transactional
 		public UsersDetails getUser(String username) {
-		Criteria c=sessionFactory.getCurrentSession().createCriteria(UsersDetails.class);
+		Criteria c=sessionFactory.openSession().createCriteria(UsersDetails.class);
 		c.add(Restrictions.eq("userName", username));
 		UsersDetails user=(UsersDetails)c.uniqueResult();
 		return user;
@@ -61,22 +62,20 @@ public class UserDAOImpl implements UserDAO {
 @SuppressWarnings("deprecation")
 @Transactional
 	public UsersDetails viewUser(int userid) {
-		Criteria c=sessionFactory.getCurrentSession().createCriteria(UsersDetails.class);
+	Criteria c=sessionFactory.openSession().createCriteria(UsersDetails.class);
 		c.add(Restrictions.eq("userid", userid));
 		UsersDetails user=(UsersDetails) c.uniqueResult();
 		return user;
 		
 	}
 	
-	
-	@SuppressWarnings({ "unchecked", "deprecation" })
-	@Transactional
-	public List<UsersDetails> UserList() {
-		Criteria c=sessionFactory.openSession().createCriteria(UsersDetails.class);
-		List<UsersDetails> l = c.list();
-		return l;
-	}
-
+@SuppressWarnings({ "unchecked" })
+@Transactional
+public List<UsersDetails> UserList() {
+	Criteria c=sessionFactory.openSession().createCriteria(UsersDetails.class);
+	List<UsersDetails> l = c.list();
+	return l;
+}
 	@SuppressWarnings({ "rawtypes", "deprecation" })
 	@Transactional
 		public UsersDetails login(UsersDetails user) {
@@ -100,7 +99,7 @@ public class UserDAOImpl implements UserDAO {
 		List<UsersDetails> list = UserList();
 
 		for (UsersDetails usersDetail : list) {
-			if (usersDetail.getUserName().equals(username)) {
+			if (!usersDetail.getUserName().equals(username)) {
 				return false;// invalid user
 			}
 		}

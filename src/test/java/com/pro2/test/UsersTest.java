@@ -1,6 +1,7 @@
 package com.pro2.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -12,8 +13,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.pro2.dao.UserDAO;
 import com.pro2.model.UsersDetails;
-import com.pro2.service.UsersService;
-
 
 
 
@@ -39,7 +38,6 @@ public class UsersTest {
 		//user = (UsersDetails) context.getBean("user");
 		
 	}
-	@Ignore
 
 	@Test
 	public void createUsersTest(){
@@ -66,7 +64,7 @@ public class UsersTest {
 	}
 	
 	
-	@Ignore
+	
 
 	@Test
 	public void updateUserTest(){
@@ -86,7 +84,7 @@ public class UsersTest {
 		
 		
 	}
-	@Ignore
+	
 	@Test
 	public void deleteUserTest(){
 
@@ -103,7 +101,6 @@ public class UsersTest {
 		
 	}
 	
-	@Ignore
 
 	@Test
 	public void retrieveAllUsersTest(){

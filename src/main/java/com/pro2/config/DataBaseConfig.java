@@ -9,15 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.pro2.daoimpl.UserDAOImpl;
+import com.pro2.model.Blog;
+import com.pro2.model.BlogComment;
+import com.pro2.model.Job;
 import com.pro2.model.UsersDetails;
-
 
 public class DataBaseConfig {
 	
@@ -48,6 +47,8 @@ public class DataBaseConfig {
 
 	}
 
+	
+	
 	@Autowired
 	@Bean(name = "sessionFactory")
 	public SessionFactory getSessionFactory(DataSource dataSource) {
@@ -55,9 +56,12 @@ public class DataBaseConfig {
 		sessionBuilder.addProperties(getHibernateProperties());
 
 		sessionBuilder.addAnnotatedClasses(UsersDetails.class);
-	
-		 
-		System.out.println("Session is crated................!");
+		sessionBuilder.addAnnotatedClasses(Job.class);
+		sessionBuilder.addAnnotatedClasses(Blog.class);
+		sessionBuilder.addAnnotatedClass(BlogComment.class);
+
+		
+		System.out.println("Session is created................!");
 
 		return sessionBuilder.buildSessionFactory();
 
@@ -68,13 +72,23 @@ public class DataBaseConfig {
 	@Bean(name = "transactionManager")
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
-		System.out.println("Transaction is crated............!");
+		System.out.println("Transaction is created............!");
 		return transactionManager;
+		}
+	
+	/*@Autowired
+	@Bean(name="usersDao")
+	public UserDAO
+	getusersDAO(SessionFactory sessionFactory){
 		
-		
-		
-		
-		
-		
+		return new UserDAOImpl();
 	}
-}
+	
+	@Autowired
+	@Bean(name="jobDao")
+	public JobDAO getjobDAO(SessionFactory sessionFactory){
+		
+		return new JobDaoImpl();
+		*/
+
+	}

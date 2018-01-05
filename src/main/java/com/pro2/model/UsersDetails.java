@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="C_USERS")
-@Component
 public class UsersDetails implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
